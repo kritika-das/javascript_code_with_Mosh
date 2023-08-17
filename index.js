@@ -942,19 +942,307 @@
 // }
 
 // count occurrences
-const numbers=[1,2,3,4,1 ];
-const count=countOccurrences(numbers,-1);
-console.log(count);
-function countOccurrences(array,searchElement){
-//     let count=0;
-//     for(let element of array)
-//     if(element===searchElement)
-//     count++;
+// const numbers=[1,2,3,4,1 ];
+// const count=countOccurrences(numbers,-1);
+// console.log(count);
+// function countOccurrences(array,searchElement){
+// //     let count=0;
+// //     for(let element of array)
+// //     if(element===searchElement)
+// //     count++;
 
-return array.reduce((accumulator,current)=>{
-    const occurrence=(current===searchElement)? 1: 0;
-    console.log(accumulator,current,searchElement);
-    return accumulator+occurrence;
-},0);
- return count;
+// return array.reduce((accumulator,current)=>{
+//     const occurrence=(current===searchElement)? 1: 0;
+//     console.log(accumulator,current,searchElement);
+//     return accumulator+occurrence;
+// },0);
+//  return count;
+// }
+
+// // Get max
+// const numbers=[1,2,3,4];
+// const max=getMax([1,2,2,1,3]);
+// console.log(max);
+
+// function getMax(array){
+//     if(array.length===0)
+//     return undefined;
+// // let max=array[0];
+// // for(let i=1;i<array.length;i++)
+// // if(array[i]>max)
+// // max=array[i];
+// // return max;
+
+// array.reduce((a,b)=>{
+// return(a>b)? a:b;
+// });
+// }
+
+// // movies
+
+// const movies=[
+//     {
+//         title:'a',year:2018,rating:4.5},
+//         {title:'b',year:2018,rating:4.7},
+//        { title:'c',year:2018,rating:3},
+//         {title:'d',year:2018,rating:4.5}
+// ];
+// // all movies  in 2018 with rating >4
+// // Sort them by their rating
+// // descending order
+// // pick their title
+
+// const titles=movies
+// .filter(m=>m.year===2018 && m.rating>=4)
+// .sort((a,b)=> a.rating-b.rating)
+// .reverse()
+// .map(m=>m.title)
+
+// console.log(titles);
+
+
+// Function Declarations vs Expressions
+
+//function declaraction
+// function walk(){
+// console.log('walk');
+// }
+// // named function expression
+// let run=function walk(){
+// console.log('run');
+// };
+// // anonymous function expression
+// let run=function(){
+//     console.log('run');
+//     };
+
+// Hoisting
+
+// process of moving function declarations to the top of the file
+// this is =done automatically by the engine that is executing this code
+   
+// Walk();
+
+// function Walk() {
+//     console.log('walk');
+// }
+
+// run();
+// const run = function() {
+//     console.log('run');
+// };
+
+// // Arguments
+// function sum(){
+//     let total=0;
+//     for(let value of arguments)
+//     total +=value;
+//     // console.log(argumnents);
+
+//     // return a+b;
+//     return total;
+// }
+// console.log(sum(1,2));
+// // console.log(sum(1));//shows NaN
+
+// // the Rest operator
+// function sum(discount,...prices){
+// const total= prices.reduce((a,b)=>a+b);
+// return total *(1-discount);
+// }
+// console.log(sum(0.1,20,30));
+// // we cannot have a paramater after using rest paramenter
+// function interest(principal,rate=3.5,years=5){
+//     return principal*rate/100*years;
+//    }
+//    console.log(interest(10000));
+// //    parameters after giving the default should also be given default value
+// // Getters and Setters
+// const person = {
+//     firstName: 'Mosh',
+//     lastName: 'haedani',
+//     get fullName() {
+//         return `${person.firstName} ${person.lastName}`;
+//     },
+//     set fullName(value) {
+//         const parts = value.split(' ');
+//         this.firstName = parts[0];
+//         this.lastName = parts[1]; // Corrected assignment
+//     }
+// };
+
+// person.fullName = 'John Smith';
+// console.log(person.firstName); // Output: John
+// console.log(person.lastName);  // Output: Smith
+// console.log(person.fullName);  // Output: John Smith
+
+// getters=> access properties
+//setters=> change (mutate) them
+
+// Try and Catch
+// const person={
+//     firstName:'Mosh',
+//     lastName:'Hamedani',
+//     set fullName(value){
+//         if(typeof value !=='string')
+//         throw new Error('Value is not a string');
+//     const parts =value.split('');
+//     if(parts.length !==2)
+//     throw new Error('Enter a first and last name');
+//      this.firstName=parts[0];
+//      this.lastName=parts[1];
+
+//     }
+// };
+// try {
+//     person.fullName=null;
+
+// }
+// catch(e){
+//     alert(e);
+// }
+// console.log(person);
+
+// // Local vs Global Scope
+// //  local variable cannot be accessed outside the block
+// const color='red';
+// function start(){
+//     const message='hi';
+//     const color='blue';
+//     console.log(color);
+// }
+
+// function stop(){
+//     const message='bye';
+// }
+// start();
+
+// // let vs Var
+
+// // when we dclare var keyword it is not limited
+// //  to the block in which it is defined
+// function start(){
+//     for(var i=0;i<5;i++){
+//         console.log(i);
+
+//         console.log(i);
+//     }
+//     start();
+// }
+
+// function start(){
+//     for(var i=0;i<5;i++){
+//         if(true){
+//             let color='red';
+//         }
+//     }
+//     console.log(color);
+// }
+// var=> function-scoped
+// ES6(ES2015): let,const=> block-scoped
+// start();
+// This keyword-the object thst is executing the current function
+
+// method->obj
+// const video={
+// title:'a',
+// play(){
+//     console.log(this);
+// }
+// };
+// video.stop=function(){
+//     console.log(this);
+// };
+// video.stop();
+
+// const video={
+//     title:'a',
+//     play(){
+//         console.log(this);
+//     }
+//     };
+//    function playVideo(){
+//         console.log(this);
+//     }; 
+//     playVideo();
+     
+// const video={
+//     title:'a',
+//     tags:['a','b','c'],
+//     showTags() {
+//         this.tags.forEach(function(tag){
+//             console.log(this,tag);
+//         },this);
+//         }
+//     };
+// video.showTags();
+
+
+// Changing this
+
+// const video= {
+//     title:"a",
+//     tags:['a','b','c'],
+//     showTags(){
+//         this.tags.forEach(function(tag){
+//             console.log(this.title,tag);
+//         }.blind(this));
+//     }
+// };
+
+// video.showTags();
+
+// const video = {
+//     title: "a",
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach(tag => {
+//             console.log(this.title, tag);
+//         });
+//     }
+// };
+
+// video.showTags();
+
+// Sum of Arguments
+console.log(sum(1,2,3,4));
+
+function sum(...items){
+    return items.reduce((a,b)=> a+b);
+}
+
+// Area of Circle
+const circle={
+    radius:1,
+    get area(){
+        return Math.PI*this.radius*this.radius;
+    }
+};
+
+console.log(circle.area);
+
+// write in console circle.radius=2;
+// circle.area
+// o/p= 12.566370614359172
+
+// error handling
+try{
+    const numbers=[1,2,3,4];
+    const count=countOccurrences(null,1);
+    console.log(count);
+
+}
+
+catch(e){
+    console.log(e.messages);
+}
+
+function countOccurrences(array,searchElement){
+    if(!Array.isArray(array))
+    throw new Error('Invalid array.');
+
+    return array.reduce((accumulator,current)=>{
+        const occurrences=(current=== searchElement)? 1:0;
+        return accumulator+occurrences;
+    }),0;
 }
